@@ -10,4 +10,4 @@ require (
 	github.com/pulumi/pulumi/sdk/v2 v2.12.0
 )
 
-replace github.com/danitso/terraform-provider-proxmox => github.com/meyskens/terraform-provider-proxmox v0.4.5-0.20220101161512-eea9a1511e09
+replace github.com/danitso/terraform-provider-proxmox => github.com/meyskens/terraform-provider-proxmox v0.4.5-0.20220101164055-75c6b1135eb7

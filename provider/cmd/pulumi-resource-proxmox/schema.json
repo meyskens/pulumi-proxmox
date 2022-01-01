@@ -1884,7 +1884,6 @@
                 }
             },
             "required": [
-                "password",
                 "userId"
             ],
             "inputProperties": {
@@ -1940,7 +1939,6 @@
                 }
             },
             "requiredInputs": [
-                "password",
                 "userId"
             ],
             "stateInputs": {

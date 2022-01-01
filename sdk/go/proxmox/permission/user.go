@@ -32,7 +32,7 @@ type User struct {
 	// The user's last name
 	LastName pulumi.StringPtrOutput `pulumi:"lastName"`
 	// The user's password
-	Password pulumi.StringOutput `pulumi:"password"`
+	Password pulumi.StringPtrOutput `pulumi:"password"`
 	// The user id
 	UserId pulumi.StringOutput `pulumi:"userId"`
 }
@@ -40,9 +40,6 @@ type User struct {
 // NewUser registers a new resource with the given unique name, arguments, and options.
 func NewUser(ctx *pulumi.Context,
 	name string, args *UserArgs, opts ...pulumi.ResourceOption) (*User, error) {
-	if args == nil || args.Password == nil {
-		return nil, errors.New("missing required argument 'Password'")
-	}
 	if args == nil || args.UserId == nil {
 		return nil, errors.New("missing required argument 'UserId'")
 	}
@@ -144,7 +141,7 @@ type userArgs struct {
 	// The user's last name
 	LastName *string `pulumi:"lastName"`
 	// The user's password
-	Password string `pulumi:"password"`
+	Password *string `pulumi:"password"`
 	// The user id
 	UserId string `pulumi:"userId"`
 }
@@ -170,7 +167,7 @@ type UserArgs struct {
 	// The user's last name
 	LastName pulumi.StringPtrInput
 	// The user's password
-	Password pulumi.StringInput
+	Password pulumi.StringPtrInput
 	// The user id
 	UserId pulumi.StringInput
 }

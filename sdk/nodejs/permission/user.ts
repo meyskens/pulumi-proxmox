@@ -73,7 +73,7 @@ export class User extends pulumi.CustomResource {
     /**
      * The user's password
      */
-    public readonly password!: pulumi.Output<string>;
+    public readonly password!: pulumi.Output<string | undefined>;
     /**
      * The user id
      */
@@ -104,9 +104,6 @@ export class User extends pulumi.CustomResource {
             inputs["userId"] = state ? state.userId : undefined;
         } else {
             const args = argsOrState as UserArgs | undefined;
-            if (!args || args.password === undefined) {
-                throw new Error("Missing required property 'password'");
-            }
             if (!args || args.userId === undefined) {
                 throw new Error("Missing required property 'userId'");
             }
@@ -226,7 +223,7 @@ export interface UserArgs {
     /**
      * The user's password
      */
-    readonly password: pulumi.Input<string>;
+    readonly password?: pulumi.Input<string>;
     /**
      * The user id
      */

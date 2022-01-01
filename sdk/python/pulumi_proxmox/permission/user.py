@@ -73,8 +73,6 @@ class User(pulumi.CustomResource):
             __props__['groups'] = groups
             __props__['keys'] = keys
             __props__['last_name'] = last_name
-            if password is None:
-                raise TypeError("Missing required property 'password'")
             __props__['password'] = password
             if user_id is None:
                 raise TypeError("Missing required property 'user_id'")
@@ -210,7 +208,7 @@ class User(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def password(self) -> pulumi.Output[str]:
+    def password(self) -> pulumi.Output[Optional[str]]:
         """
         The user's password
         """
